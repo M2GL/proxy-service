@@ -1,0 +1,20 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: proxy-service
+  cloud:
+    gateway:
+      routes:
+      - id: courseModule
+        uri: http://localhost:8080/
+        predicates:
+        - Path=/course/**
+      - id: teacherModule
+        uri: http://localhost:8181/
+        predicates:
+        - Path=/teacher/**
+        
+        
+       
